@@ -29,10 +29,12 @@
 | category_id   | integer | null: false |
 | condition_id   | integer | null: false |
 | shipping_cost_id   | integer | null: false |
-| shipping_area_id   | integer | null: false |
+| prefecture_id   | integer | null: false |
 | days_til_ship_id   | integer | null: false |
 | price   | integer | null: false |
 
+#_id はactive_hashで_idで取るためtypeはintegerになる
+              
 ### Association
 
 - has_one :order
@@ -44,17 +46,17 @@
 | ------- | ---------- | ------------------------------ |
 | order    | references | null: false, foreign_key: true |
 | postal_code   | string | null: false |
-| prefecture   | string | null: false |
+| prefecture_id   | string | null: false |
 | city_town   | string | null: false |
 | street   | string | null: false |
-| building   | string | null: false |
+| building   | string |  |
 | phone   | string | null: false |
 
 ### Association
 
 - belongs_to :order
 
-## orders テーブル
+## orders テーブル (誰が何を購入したのか)
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
