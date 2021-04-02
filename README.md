@@ -31,7 +31,7 @@
 | condition_id   | integer | null: false |
 | shipping_cost_id   | integer | null: false |
 | prefecture_id   | integer | null: false |
-| days_til_ship_id   | integer | null: false |
+| days_till_ship_id   | integer | null: false |
 | price   | integer | null: false |
 
 #_id はactive_hashで_idで取るためtypeはintegerになる

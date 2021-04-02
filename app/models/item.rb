@@ -16,5 +16,5 @@ class Item < ApplicationRecord
   validates :shipping_cost_id, presence: true, numericality: { other_than: 1 } 
   validates :prefecture_id, presence: true, numericality: { other_than: 1 } 
   validates :days_till_ship_id, presence: true, numericality: { other_than: 1 } 
-  validates :price, presence: true
+  validates :price, presence: true, format: {with: /\A3[0-9][0-9]|9[0-9][0-9][0-9][0-9][0-9][0-9]+\z/}
 end
