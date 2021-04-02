@@ -11,3 +11,6 @@ FactoryBot.define do
     birthday {'1997-03-03'}
   end
 end
+
+
+ 
