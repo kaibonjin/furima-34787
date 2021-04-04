@@ -16,5 +16,8 @@ class Item < ApplicationRecord
   validates :shipping_cost_id, presence: true, numericality: { other_than: 1 } 
   validates :prefecture_id, presence: true, numericality: { other_than: 1 } 
   validates :days_till_ship_id, presence: true, numericality: { other_than: 1 } 
-  validates :price, presence: true, format: {with: /\A3[0-9][0-9]|9[0-9][0-9][0-9][0-9][0-9][0-9]+\z/}
+  validates_inclusion_of :price, in: 300..9999999, message: "must be between 300~9999999"
+  validates :price, format: {with: /\A[0-9]+\z/}
+  validates :price, presence: true
+  validates :image, presence: true
 end
