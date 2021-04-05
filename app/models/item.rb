@@ -8,18 +8,15 @@ class Item < ApplicationRecord
   
   belongs_to :user
   has_one_attached :image
-  
-  validates :item_name, presence: true
-  validates :description, presence: true
-  validates :category_id, presence: true, numericality: { other_than: 1 }
-  validates :condition_id, presence: true, numericality: { other_than: 1 }
-  validates :shipping_cost_id, presence: true, numericality: { other_than: 1 }
-  validates :prefecture_id, presence: true, numericality: { other_than: 1 }
-  validates :days_till_ship_id, presence: true, numericality: { other_than: 1 }
+  with_options presence: true do
+    validates :item_name, :description, :price, :image
+  end
+  with_options presence: true, numericality: { other_than: 1 } do
+    validates :category_id, :condition_id, :shipping_cost_id, :prefecture_id, :days_till_ship_id
+  end
   validates_inclusion_of :price, in: 300..9999999, message: "must be between 300~9999999"
   validates :price, numericality: {message: "must be a number"}
-  validates :price, presence: true
-  validates :image, presence: true
+
 end
 
 #エラーメッセージをちゃんといれたい
