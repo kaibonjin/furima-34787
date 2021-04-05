@@ -18,5 +18,3 @@ class Item < ApplicationRecord
   validates :price, numericality: {message: "must be a number"}
 
 end
-
-#エラーメッセージをちゃんといれたい
