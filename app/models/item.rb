@@ -16,5 +16,4 @@ class Item < ApplicationRecord
   end
   validates_inclusion_of :price, in: 300..9999999, message: "must be between 300~9999999"
   validates :price, numericality: {message: "must be a number"}
-
 end
