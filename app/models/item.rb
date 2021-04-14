@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   
   belongs_to :user
   has_one_attached :image
+  has_one :order
   with_options presence: true do
     validates :item_name, :description, :price, :image
   end
@@ -17,3 +18,4 @@ class Item < ApplicationRecord
   validates_inclusion_of :price, in: 300..9999999, message: "must be between 300~9999999"
   validates :price, numericality: {message: "must be a number"}
 end
+
