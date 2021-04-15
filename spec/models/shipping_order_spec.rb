@@ -50,6 +50,16 @@ RSpec.describe ShippingOrder, type: :model do
         @shipping_order.valid?
         expect(@shipping_order.errors.full_messages).to include("Phone is invalid")
       end
+      it 'user_idが空だと購入できない' do
+        @shipping_order.user_id = ''
+        @shipping_order.valid?
+        expect(@shipping_order.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空だと購入できない' do
+        @shipping_order.item_id = ''
+        @shipping_order.valid?
+        expect(@shipping_order.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end
