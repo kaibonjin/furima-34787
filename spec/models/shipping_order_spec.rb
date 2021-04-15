@@ -64,6 +64,16 @@ RSpec.describe ShippingOrder, type: :model do
         @shipping_order.valid?
         expect(@shipping_order.errors.full_messages).to include("Item can't be blank")
       end
+      it 'prefecture_idが1では購入できない' do
+        @shipping_order.prefecture_id = 1
+        @shipping_order.valid?
+        expect(@shipping_order.errors.full_messages).to include("Prefecture must be selected")
+      end
+      it 'phoneは英数混合では登録できないこと' do
+        @shipping_order.phone = '9aa9090000'
+        @shipping_order.valid?
+        expect(@shipping_order.errors.full_messages).to include("Phone is invalid")
+      end
     end
   end
 end

@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
-  before_action :matchid, only: [:index]
-  before_action :matchitem, only: [:index]
+  before_action :matchid, only: [:index, :create]
+  before_action :matchitem, only: [:index, :create]
   def index
     @shipping_order = ShippingOrder.new
   end
