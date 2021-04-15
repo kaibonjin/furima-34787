@@ -4,8 +4,8 @@ class ShippingOrder
 
   with_options presence: true do
     validates :postal_code, format: { with:/\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)" }
-    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
-    validates :city_town, :street, :building, :user_id, :item_id, :token
+    validates :prefecture_id, numericality: { other_than: 1, message: "must be selected" }
+    validates :city_town, :street, :user_id, :item_id
     validates :phone, format: { with:/\A\d{11}\z/}
   end
   def save

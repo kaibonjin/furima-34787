@@ -51,7 +51,7 @@
 | city_town   | string | null: false |
 | street   | string | null: false |
 | building   | string |  |
-| phone   | integer | null: false |
+| phone   | string | null: false |
 
 ### Association
 
