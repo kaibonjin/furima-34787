@@ -47,7 +47,7 @@
 | ------- | ---------- | ------------------------------ |
 | order    | references | null: false, foreign_key: true |
 | postal_code   | string | null: false |
-| prefecture_id   | string | null: false |
+| prefecture_id   | integer | null: false |
 | city_town   | string | null: false |
 | street   | string | null: false |
 | building   | string |  |
