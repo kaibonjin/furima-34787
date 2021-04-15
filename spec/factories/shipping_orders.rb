@@ -4,7 +4,7 @@ FactoryBot.define do
     prefecture_id {3}
     city_town {"藤沢市"}
     street {"久保37"}
-    building {}
+    building {"ベル"}
     phone { "09000000000" }
   end
 end

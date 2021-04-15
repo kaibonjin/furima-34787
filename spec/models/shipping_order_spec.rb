@@ -13,6 +13,10 @@ RSpec.describe ShippingOrder, type: :model do
       it '配送先の情報として、郵便番号・都道府県・市区町村・番地・電話番号が必須であること' do
         expect(@shipping_order).to be_valid
       end
+      it 'buildingが空でも登録できる' do
+        @shipping_order.building = ''
+        expect(@shipping_order).to be_valid
+      end
     end
     context '商品購入できない時' do
       it 'postal_codeが空では購入できない' do
