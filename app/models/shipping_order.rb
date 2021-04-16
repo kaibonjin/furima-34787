@@ -8,6 +8,7 @@ class ShippingOrder
     validates :city_town, :street, :user_id, :item_id
     validates :phone, format: { with:/\A\d{10,11}\z/}
   end
+  validates :token, presence: {message: "Credit card is invalid"}
   def save
     order = Order.create(user_id: user_id, item_id: item_id)#モデル名.create（カラム名: 保存したい値）
     Shipping.create(postal_code: postal_code, prefecture_id: prefecture_id, city_town: city_town, street: street, building: building, phone: phone, order_id: order.id)

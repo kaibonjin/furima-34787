@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :findparams, only: [:edit, :show, :destroy, :update]
   before_action :matchid, only: [:edit, :destroy, :update]
+  before_action :matchitem, only: [:edit]
 
   def index
     @items = Item.order(created_at: :desc)
@@ -49,5 +50,8 @@ class ItemsController < ApplicationController
   end
   def matchid
     redirect_to action: :index unless current_user.id == @item.user_id
+  end
+  def matchitem
+    redirect_to root_path if @item.order.present?
   end
 end
