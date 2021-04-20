@@ -69,3 +69,6 @@
 - belongs_to :user
 - has_one :shipping
 - belongs_to :item
+
+#メッセージを日本語に変える
+#コメント機能追加
